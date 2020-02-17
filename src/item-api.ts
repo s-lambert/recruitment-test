@@ -16,3 +16,6 @@ export interface Item {
   user: User;
 }
 
+export async function fetchItems(limit: number): Promise<Item[]> {
+  return Promise.resolve([]);
+}
