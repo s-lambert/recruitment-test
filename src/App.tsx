@@ -38,7 +38,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className='app'>
       <h1>Recruitment Test</h1>
       {items == undefined ? (
         <div>Loading...</div>
