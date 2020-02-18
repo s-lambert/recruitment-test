@@ -13,12 +13,16 @@ function ItemList({ items, onDelete, updateTitle }: ItemListProps) {
   return (
     <ul className='item-list'>
       {items.map((item, index) => (
-        <li key={index}>
-          <ItemDetails
-            item={item}
-            updateTitle={newTitle => updateTitle(item, newTitle)}
-          />
-          <button onClick={() => onDelete(item)}>Delete</button>
+        <li key={index} className='item'>
+          <div className='item-details-container'>
+            <ItemDetails
+              item={item}
+              updateTitle={newTitle => updateTitle(item, newTitle)}
+            />
+          </div>
+          <div className='item-delete-button-cntainer'>
+            <button onClick={() => onDelete(item)}>Delete</button>
+          </div>
         </li>
       ))}
     </ul>

@@ -2,3 +2,17 @@
   list-style-type: none;
   padding-left: 0;
 }
+
+.item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.item-details-container {
+  flex: 1 1 0;
+}
+
+.item-delete-button-container {
+  flex: 0 0 auto;
+}
