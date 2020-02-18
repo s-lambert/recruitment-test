@@ -8,8 +8,10 @@ interface ItemListProps {
 function ItemList({ items }: ItemListProps) {
   return (
     <ul>
-      {items.map((_, index) => (
-        <li key={index}></li>
+      {items.map((item, index) => (
+        <li key={index}>
+          <p>Post title: {item.post.title}</p>
+        </li>
       ))}
     </ul>
   );
