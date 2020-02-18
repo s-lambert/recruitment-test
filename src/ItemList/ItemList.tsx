@@ -20,7 +20,7 @@ function ItemList({ items, onDelete, updateTitle }: ItemListProps) {
               updateTitle={newTitle => updateTitle(item, newTitle)}
             />
           </div>
-          <div className='item-delete-button-cntainer'>
+          <div className='item-delete-button-container'>
             <button onClick={() => onDelete(item)}>Delete</button>
           </div>
         </li>
