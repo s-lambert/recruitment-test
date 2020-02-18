@@ -10,13 +10,17 @@ function getRandomIndex<T>(array: T[]) {
 
 export function randomPick<T>(items: T[], number: number) {
   let randomItems: T[] = [];
-  const unusedItems = items.slice(0);
+  let unusedItems = items.slice(0);
 
   for (let remainingItems = number; remainingItems > 0; remainingItems--) {
     let randomIndex = getRandomIndex(unusedItems);
     let randomItem = unusedItems[randomIndex];
     randomItems.push(randomItem);
     unusedItems.splice(randomIndex, 1);
+
+    if (unusedItems.length === 0) {
+      unusedItems = items.slice(0);
+    }
   }
 
   return randomItems;
