@@ -32,6 +32,18 @@ test('renders the post title with each item', () => {
   expect(secondPost).toBeInTheDocument();
 });
 
+test('renders the album title with each item', () => {
+  const items = [
+    createItem('', 'first album', ''),
+    createItem('', 'second album', '')
+  ];
+  const { getByText } = render(<ItemList items={items} />);
+  const firstAlbum = getByText(/first album/i);
+  const secondAlbum = getByText(/second album/i);
+  expect(firstAlbum).toBeInTheDocument();
+  expect(secondAlbum).toBeInTheDocument();
+});
+
 function createItem(postTitle: string, albumTitle: string, username: string) {
   return {
     post: { title: postTitle },

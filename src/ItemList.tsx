@@ -11,6 +11,7 @@ function ItemList({ items }: ItemListProps) {
       {items.map((item, index) => (
         <li key={index}>
           <p>Post title: {item.post.title}</p>
+          <p>Album title: {item.album.title}</p>
         </li>
       ))}
     </ul>
