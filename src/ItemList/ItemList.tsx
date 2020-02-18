@@ -12,7 +12,7 @@ function ItemList({ items, onDelete }: ItemListProps) {
     <ul>
       {items.map((item, index) => (
         <li key={index}>
-          <ItemDetails item={item} />
+          <ItemDetails item={item} updateTitle={() => {}} />
           <button onClick={() => onDelete(item)}>Delete</button>
         </li>
       ))}
