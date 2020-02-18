@@ -38,14 +38,21 @@ function ItemDetails({ item, updateTitle }: ItemDetailsProps) {
         {isEditing ? (
           <>
             <b>Post title</b>
-            <input type='text' value={newTitle} onChange={updateNewTitle} />
-            <button onClick={saveNewTitle}>Save</button>
-            <button onClick={cancelEditing}>Cancel</button>
+            <div className='item-details-post-title'>
+              <input type='text' value={newTitle} onChange={updateNewTitle} />
+            </div>
+            <div className='edit-buttons'>
+              <button onClick={saveNewTitle}>Save</button>
+              <button onClick={cancelEditing}>Cancel</button>
+            </div>
           </>
         ) : (
           <>
-            <b>Post title</b> {item.post.title}
-            <button onClick={startEditing}>Edit</button>
+            <b>Post title</b>
+            <div className='item-details-post-title'>{item.post.title}</div>
+            <div className='edit-buttons'>
+              <button onClick={startEditing}>Edit</button>
+            </div>
           </>
         )}
       </div>
