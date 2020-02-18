@@ -1,4 +1,5 @@
 import React from 'react';
+import './ItemList.css';
 import { Item } from './item-api';
 import ItemDetails from './ItemDetails';
 
@@ -10,7 +11,7 @@ interface ItemListProps {
 
 function ItemList({ items, onDelete, updateTitle }: ItemListProps) {
   return (
-    <ul>
+    <ul className='item-list'>
       {items.map((item, index) => (
         <li key={index}>
           <ItemDetails
