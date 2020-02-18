@@ -14,7 +14,7 @@ function App() {
   return items == undefined ? (
     <div>Loading...</div>
   ) : (
-    <ItemList items={items} />
+    <ItemList items={items} onDelete={() => {}} />
   );
 }
 
