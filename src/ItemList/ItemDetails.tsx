@@ -28,6 +28,7 @@ function ItemDetails({ item, updateTitle }: ItemDetailsProps) {
   }
 
   function saveNewTitle() {
+    if (newTitle == '') return;
     updateTitle(newTitle);
     cancelEditing();
   }
@@ -53,7 +54,9 @@ function ItemDetails({ item, updateTitle }: ItemDetailsProps) {
               />
             </div>
             <div className='edit-buttons'>
-              <button onClick={saveNewTitle}>Save</button>
+              <button onClick={saveNewTitle} disabled={newTitle == ''}>
+                Save
+              </button>
               <button onClick={cancelEditing}>Cancel</button>
             </div>
           </>
