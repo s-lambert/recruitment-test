@@ -6,7 +6,13 @@ interface ItemListProps {
 }
 
 function ItemList({ items }: ItemListProps) {
-  return <ul></ul>;
+  return (
+    <ul>
+      {items.map((_, index) => (
+        <li key={index}></li>
+      ))}
+    </ul>
+  );
 }
 
 export default ItemList;
