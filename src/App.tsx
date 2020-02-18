@@ -37,10 +37,19 @@ function App() {
     updateItems(updatedItems);
   }
 
-  return items == undefined ? (
-    <div>Loading...</div>
-  ) : (
-    <ItemList items={items} onDelete={deleteItem} updateTitle={updateTitle} />
+  return (
+    <div>
+      <h1>Recruitment Test</h1>
+      {items == undefined ? (
+        <div>Loading...</div>
+      ) : (
+        <ItemList
+          items={items}
+          onDelete={deleteItem}
+          updateTitle={updateTitle}
+        />
+      )}
+    </div>
   );
 }
 
