@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import ItemList from './ItemList';
-import { Item, fetchItems } from './item-api';
+import ItemList from './ItemList/ItemList';
+import { Item, fetchItems } from './ItemList/item-api';
 
 const NUMBER_OF_ITEMS = 30;
 

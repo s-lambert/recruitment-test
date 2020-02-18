@@ -1,10 +1,10 @@
-jest.mock('./item-api');
+jest.mock('./ItemList/item-api');
 
 import React from 'react';
 import { render, waitForElement } from '@testing-library/react';
 import App from './App';
 
-const itemApi = require('./item-api');
+const itemApi = require('./ItemList/item-api');
 const fetchItemsMock = (itemApi.fetchItems = jest.fn());
 
 test('displays a loading message while fetching data', () => {
