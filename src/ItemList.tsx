@@ -12,6 +12,7 @@ function ItemList({ items }: ItemListProps) {
         <li key={index}>
           <p>Post title: {item.post.title}</p>
           <p>Album title: {item.album.title}</p>
+          <p>Username: {item.user.username}</p>
         </li>
       ))}
     </ul>
