@@ -26,11 +26,11 @@ test('renders a list item for each item in the list', () => {
 
 test('allows an item to be deleted', () => {
   const onDeleteMock = jest.fn();
-  const items = [createItem('item to delete', '', '')];
-  const { getByRole } = render(
+  const items = [createItem('item', '', '')];
+  const { getByText } = render(
     <ItemList items={items} onDelete={onDeleteMock} />
   );
-  const deleteButton = getByRole('button');
+  const deleteButton = getByText(/delete/i);
   deleteButton.click();
   expect(onDeleteMock).toBeCalledWith(items[0]);
 });

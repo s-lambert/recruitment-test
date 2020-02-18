@@ -22,13 +22,11 @@ test('displays a list of items from an API', async () => {
 });
 
 test('deletes an item from the list of items', async () => {
-  fetchItemsMock.mockResolvedValueOnce([
-    createItem('post to be deleted', '', '')
-  ]);
-  const { getByRole, queryByText } = render(<App />);
-  const deleteButton = await waitForElement(() => getByRole('button'));
+  fetchItemsMock.mockResolvedValueOnce([createItem('post', '', '')]);
+  const { getByText, queryByText } = render(<App />);
+  const deleteButton = await waitForElement(() => getByText(/delete/i));
   deleteButton.click();
-  const deletedItem = queryByText(/post to be deleted/i);
+  const deletedItem = queryByText(/post/i);
   expect(deletedItem).toBeNull();
 });
 
