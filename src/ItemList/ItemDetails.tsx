@@ -36,17 +36,17 @@ function ItemDetails({ item, updateTitle }: ItemDetailsProps) {
     <div className='item-details'>
       <div className='item-details-post'>
         {isEditing ? (
-          <div>
-            <b>Post title</b>{' '}
+          <>
+            <b>Post title</b>
             <input type='text' value={newTitle} onChange={updateNewTitle} />
             <button onClick={saveNewTitle}>Save</button>
             <button onClick={cancelEditing}>Cancel</button>
-          </div>
+          </>
         ) : (
-          <div>
-            <b>Post title</b> {item.post.title}{' '}
+          <>
+            <b>Post title</b> {item.post.title}
             <button onClick={startEditing}>Edit</button>
-          </div>
+          </>
         )}
       </div>
       <div className='item-details-other'>
