@@ -12,9 +12,9 @@ test('renders the post title for an item', () => {
 });
 
 test('renders the album title for an item', () => {
-  const item = createItem('', 'album title', '');
+  const item = createItem('', 'albums title', '');
   const { getByText } = render(<ItemDetails item={item} updateTitle={noop} />);
-  const albumTitle = getByText(/album title/i);
+  const albumTitle = getByText(/albums title/i);
   expect(albumTitle).toBeInTheDocument();
 });
 
