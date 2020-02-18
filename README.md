@@ -1,3 +1,18 @@
+Recruitment test
+
+## Required Features
+
+- [x] Display a list of 30 items
+  - [x] Each item contains a post title
+  - [x] Each item contains an album title
+  - [x] Each item has a username
+- [x] The title of an item can be edited
+- [x] An item can be removed from the list
+
+Items are fetched from a combination of the post, album and user APIs from https://jsonplaceholder.typicode.com/. Each item will be created through a random combination of post, album and user.
+
+## Running The Project
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
