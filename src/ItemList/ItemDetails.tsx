@@ -21,6 +21,12 @@ function ItemDetails({ item, updateTitle }: ItemDetailsProps) {
     setNewTitle(e.target.value);
   }
 
+  function saveOnEnter(e: React.KeyboardEvent<HTMLInputElement>) {
+    if (e.key === 'Enter') {
+      saveNewTitle();
+    }
+  }
+
   function saveNewTitle() {
     updateTitle(newTitle);
     cancelEditing();
@@ -39,7 +45,12 @@ function ItemDetails({ item, updateTitle }: ItemDetailsProps) {
           <>
             <b>Post title</b>
             <div className='item-details-post-title'>
-              <input type='text' value={newTitle} onChange={updateNewTitle} />
+              <input
+                type='text'
+                value={newTitle}
+                onChange={updateNewTitle}
+                onKeyPress={saveOnEnter}
+              />
             </div>
             <div className='edit-buttons'>
               <button onClick={saveNewTitle}>Save</button>
