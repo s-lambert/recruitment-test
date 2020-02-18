@@ -24,42 +24,6 @@ test('renders a list item for each item in the list', () => {
   expect(renderedItems.length).toBe(items.length);
 });
 
-test('renders the post title with each item', () => {
-  const items = [
-    createItem('first post', '', ''),
-    createItem('second post', '', '')
-  ];
-  const { getByText } = render(<ItemList items={items} onDelete={noop} />);
-  const firstPost = getByText(/first post/i);
-  const secondPost = getByText(/second post/i);
-  expect(firstPost).toBeInTheDocument();
-  expect(secondPost).toBeInTheDocument();
-});
-
-test('renders the album title with each item', () => {
-  const items = [
-    createItem('', 'first album', ''),
-    createItem('', 'second album', '')
-  ];
-  const { getByText } = render(<ItemList items={items} onDelete={noop} />);
-  const firstAlbum = getByText(/first album/i);
-  const secondAlbum = getByText(/second album/i);
-  expect(firstAlbum).toBeInTheDocument();
-  expect(secondAlbum).toBeInTheDocument();
-});
-
-test('renders the username with each item', () => {
-  const items = [
-    createItem('', '', 'a user'),
-    createItem('', '', 'another user')
-  ];
-  const { getByText } = render(<ItemList items={items} onDelete={noop} />);
-  const firstUser = getByText(/a user/i);
-  const secondUser = getByText(/another user/i);
-  expect(firstUser).toBeInTheDocument();
-  expect(secondUser).toBeInTheDocument();
-});
-
 test('allows an item to be deleted', () => {
   const onDeleteMock = jest.fn();
   const items = [createItem('item to delete', '', '')];

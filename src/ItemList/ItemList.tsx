@@ -1,5 +1,6 @@
 import React from 'react';
 import { Item } from './item-api';
+import ItemDetails from './ItemDetails';
 
 interface ItemListProps {
   items: Item[];
@@ -11,9 +12,7 @@ function ItemList({ items, onDelete }: ItemListProps) {
     <ul>
       {items.map((item, index) => (
         <li key={index}>
-          <p>Post title: {item.post.title}</p>
-          <p>Album title: {item.album.title}</p>
-          <p>Username: {item.user.username}</p>
+          <ItemDetails item={item} />
           <button onClick={() => onDelete(item)}>Delete</button>
         </li>
       ))}
