@@ -5,14 +5,18 @@ import ItemDetails from './ItemDetails';
 interface ItemListProps {
   items: Item[];
   onDelete: (item: Item) => void;
+  updateTitle: (item: Item, newTitle: string) => void;
 }
 
-function ItemList({ items, onDelete }: ItemListProps) {
+function ItemList({ items, onDelete, updateTitle }: ItemListProps) {
   return (
     <ul>
       {items.map((item, index) => (
         <li key={index}>
-          <ItemDetails item={item} updateTitle={() => {}} />
+          <ItemDetails
+            item={item}
+            updateTitle={newTitle => updateTitle(item, newTitle)}
+          />
           <button onClick={() => onDelete(item)}>Delete</button>
         </li>
       ))}

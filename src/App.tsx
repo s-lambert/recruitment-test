@@ -21,10 +21,26 @@ function App() {
     updateItems(newItems);
   }
 
+  function updateTitle(item: Item, newTitle: string) {
+    if (items == undefined) return;
+
+    const updatedItem = {
+      ...item,
+      post: {
+        ...item.post,
+        title: newTitle
+      }
+    };
+    const updatedItems = items.slice(0);
+    const updatedIndex = items.indexOf(item);
+    updatedItems[updatedIndex] = updatedItem;
+    updateItems(updatedItems);
+  }
+
   return items == undefined ? (
     <div>Loading...</div>
   ) : (
-    <ItemList items={items} onDelete={deleteItem} />
+    <ItemList items={items} onDelete={deleteItem} updateTitle={updateTitle} />
   );
 }
 

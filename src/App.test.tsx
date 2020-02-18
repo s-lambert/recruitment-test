@@ -1,7 +1,7 @@
 jest.mock('./ItemList/item-api');
 
 import React from 'react';
-import { render, waitForElement } from '@testing-library/react';
+import { render, waitForElement, fireEvent } from '@testing-library/react';
 import App from './App';
 
 const itemApi = require('./ItemList/item-api');
@@ -28,6 +28,21 @@ test('deletes an item from the list of items', async () => {
   deleteButton.click();
   const deletedItem = queryByText(/post/i);
   expect(deletedItem).toBeNull();
+});
+
+test('updates the post title of an item', async () => {
+  fetchItemsMock.mockResolvedValueOnce([createItem('original title', '', '')]);
+  const { getByText, getByRole } = render(<App />);
+
+  const editButton = await waitForElement(() => getByText(/edit/i));
+  editButton.click();
+  const newTitleInput = getByRole('textbox');
+  fireEvent.change(newTitleInput, { target: { value: 'new title' } });
+  const saveButton = getByText(/save/i);
+  saveButton.click();
+
+  const updatedTitle = getByText(/new title/i);
+  expect(updatedTitle).toBeInTheDocument();
 });
 
 function createItem(postTitle: string, albumTitle: string, username: string) {
