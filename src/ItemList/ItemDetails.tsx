@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './ItemDetails.css';
 import { Item } from './item-api';
 
 interface ItemDetailsProps {
@@ -32,22 +33,30 @@ function ItemDetails({ item, updateTitle }: ItemDetailsProps) {
   }
 
   return (
-    <div>
-      {isEditing ? (
-        <p>
-          New post title:{' '}
-          <input type='text' value={newTitle} onChange={updateNewTitle} />
-          <button onClick={saveNewTitle}>Save</button>
-          <button onClick={cancelEditing}>Cancel</button>
-        </p>
-      ) : (
-        <p>
-          Post title: {item.post.title}{' '}
-          <button onClick={startEditing}>Edit</button>
-        </p>
-      )}
-      <p>Album title: {item.album.title}</p>
-      <p>Username: {item.user.username}</p>
+    <div className='item-details'>
+      <div className='item-details-post'>
+        {isEditing ? (
+          <div>
+            <b>Post title</b>{' '}
+            <input type='text' value={newTitle} onChange={updateNewTitle} />
+            <button onClick={saveNewTitle}>Save</button>
+            <button onClick={cancelEditing}>Cancel</button>
+          </div>
+        ) : (
+          <div>
+            <b>Post title</b> {item.post.title}{' '}
+            <button onClick={startEditing}>Edit</button>
+          </div>
+        )}
+      </div>
+      <div className='item-details-other'>
+        <div className='item-details-album'>
+          <b>Album title</b> {item.album.title}
+        </div>
+        <div className='item-details-user'>
+          <b>Username</b> {item.user.username}
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,26 @@
+.item-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-details-post {
+  display: flex;
+  flex-direction: row;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.item-details-other {
+  font-size: 12px;
+  display: flex;
+  flex-direction: row;
+  height: 2em;
+}
+
+.item-details-album {
+  flex: 1 1 0;
+}
+
+.item-details-user {
+  flex: 1 1 0;
+}
